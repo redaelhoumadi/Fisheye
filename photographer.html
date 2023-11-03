@@ -1,37 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" aria-label="Fisheye Home page"><img src="assets/images/logo.png" class="logo" alt="fisheye logo"></a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      </div>
+
+      <div class="filter_contenair">
+        <label class="filter_label" for="filter">Trier par</label>
+        <select class="filter" name="filter" id="filter">
+          <option value="" selected disabled hidden>Choisissez ici</option>
+          <option value="0">Popularité</option>
+          <option value="1">Date</option>
+          <option value="2">Titre</option>
+        </select>
+       
+      </div>
+      <div class="photographer_media">
+      </div>
+      <div class="likeheart">
+        <h5 id="total-likes"></h5>
+        <i class="fa-solid fa-heart heart__icon--full"></i>
       </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="Fermer le formulaire" onclick="closeModal()" aria-label="Fermer le formulaire">
         </header>
+        <div class="form_title"></div>
+        
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="first">Prénom</label>
+						<input 
+            class="text-control"
+            type="text"
+            id="first"
+            name="first">
+            
+                <span id="firsterror"></span>
+            <label for="last">Nom</label>
+						<input 
+            class="text-control"
+            type="text"
+            id="last"
+            name="last">
+            
+                <span id="lasterror"></span>
+            <label for="email">Email</label>
+						<input 
+            class="text-control"
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email">
+            
+                <span id="emailerror"></span>
+            <label for="message">Votre message</label>
+            <textarea id="message"></textarea>
+                <span id="messageerror"></span>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
+
+    <div class="lightbox_wrapper">
+      <div class="lightbox">
+        <div class="lightbox_media"></div>
+        <button class="next" aria-label="next meida">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <button class="prev" aria-label="Previous media">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="close" aria-label="Fermer le Lightbox">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+      </div>
+    </div>
+    <script src="scripts/templates/photographer_profile.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+
   </body>
 </html>
