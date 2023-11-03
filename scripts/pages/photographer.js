@@ -1,7 +1,7 @@
 // Fonction asynchrone récupère un photographe et ses médias à partir du fichier JSON basé sur l'ID du photographe.
 async function getPhotographerById(id) {
     // Effectue une requête fetch pour obtenir les données des photographes à partir du fichier JSON.
-    const response = await fetch('../../data/photographers.json');
+    const response = await fetch('data/photographers.json');
     // Parse les données JSON de la réponse.
     const photographersData = await response.json();
     // Récupère les tableaux de photographes et de médias à partir des données parsées.
